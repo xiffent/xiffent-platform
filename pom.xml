@@ -239,4 +239,9 @@
             <artifactId>lombok</artifactId>
         </dependency>
     </dependencies>
+
+
+    <build>
+        <finalName>xiffent-platform</finalName>
+    </build>
 </project>
