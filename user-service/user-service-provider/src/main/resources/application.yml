@@ -1,0 +1,42 @@
+dubbo:
+  protocol:
+    name: dubbo
+    threads: 10
+  application:
+    name: user-service-provider
+  registry:
+    address: zookeeper://192.168.168.168:2181
+    protocol: zookeeper
+  provider:
+    timeout: 10000
+    threads: 100
+spring:
+  application:
+    name: user-service-provider
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+    url: jdbc:mysql://192.168.168.168:3306/test?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      minimum-idle: 20
+      idle-timeout: 180000
+      maximum-pool-size: 100
+      auto-commit: true
+      pool-name: HikariCP
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+
+server:
+  port: 10001
+  tomcat:
+    threads:
+      max: 300
+    uri-encoding: utf-8
+
+
+logging:
+  config: classpath:logback-spring.xml
+
